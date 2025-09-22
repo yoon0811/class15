@@ -14,28 +14,66 @@
     }
     /* 상품개별 */
     li.xans-record-{
+      box-sizing: border-box;
       width: 50%;
+      min-width: 400px;/*★★★너비는 부모에게★★*/
       background-color: #ccc;
+      border: 1px solid #000;
       
     }
-    .prdList__item{}
+    .prdList__item{
+      box-sizing: inherit;
+      width: auto;
+      height: auto;
+    }
+     /* .prdList__item .thumbnail{}
+        .prdList__item .description{} 
+    */
     /* 상품섬네일 */
-    .prdList__item .thumbnail{}
-    .prdList__item .thumbnail>a{}
-    .prdList__item .thumbnail .likebutton{}
+    .prdList__item .thumbnail{
+      /*  .prdList__item .thumbnail .likeButton의 기준*/
+      position: relative;
+    }
+    .prdList__item .thumbnail>a{
+      /*
+      너비 높이를 지정하려고
+      또는
+      부모의 너비를 가져오고 자식의 높이를 인식
+      */
+      display: block; 
+    }
+    .prdList__item .thumbnail>a img{
+      display: block;
+      
+      min-height: 530px;
+      background-color: #fc6;
+    }
+    .prdList__item .thumbnail .likeButton{
+      width: 80px; height: 80px;
+      background-color: rgba(255,0,0,0.5);
+      position: absolute;
+      left:10px; top:10px;
+    }
     .prdList__item .thumbnail .icon__box{}
     .prdList__item .thumbnail .icon__box span{}
     .prdList__item .thumbnail .sale_box{}
 
     /* 상품설명 */
-    .prdList__item .description{}
+    .prdList__item .description{
+      box-sizing: inherit;
+      min-height: 150px;
+      background-color: #eee;
+      border: 1px solid #00f;
+    }
   </style>
 </head>
 <body>
   <li class="xans-record-">
     <div class="prdList__item">
       <div class="thumbnail">
-        <a href="">이미지</a>
+        <a href="">
+          <img src="" alt="샘플위치" width="400" height="530">
+        </a>
         <div class="likeButton">좋아요버튼</div>
         <!-- .icon__box>span*3 -->
         <div class="icon__box">
