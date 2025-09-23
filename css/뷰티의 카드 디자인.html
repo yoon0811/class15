@@ -24,10 +24,18 @@
     */
   .ec-base-product{
     width: auto;
+    /* background-color: #0f0;
+    border: 1px solid #080;
+    padding:10px 0; */
   }
   .ec-base-product ul.prdList{
     width: auto;
-    background-color: #333;
+    /* background-color: #333; */
+    /* 
+    2. 상품 양옆으로 준 여백만큼 -margin
+        margin:0 -10px;
+    */
+    margin:0 -10px;
 
     /* 
      자식 요소 display: inline-block; 한칸공백문자 없애기
@@ -40,9 +48,9 @@
   .ec-base-product ul.prdList>li{
     display: inline-block;
     width:33.333%;
-    background-color: #ccc;
-    border: 1px solid #f00;
-    box-sizing: border-box;
+    /* background-color: #ccc; */
+    /* border: 1px solid #f00; */
+     box-sizing: border-box;
     /* ul에 글자크기 줄간격 0으로 설정한 것을 다시 설정
       font-size:0;
     line-height: 0;
@@ -56,7 +64,25 @@
     
   }
   .ec-base-product .prdList__item{
+    /* 
+    1. 상품간 여백을 위해서  .prdList__item
+       border 안쪽 여백을 이용해서 padding:0 10px;
+
+       35line에 2번처리
+    */
     padding:0 10px;
+
+    /* 
+    2-2 의 상품설명이 사진 위에 겹쳐지게 하기 위해서
+        descripition의 기준요소가 되기 위해서
+          .ec-base-product .prdList__item .description{
+   position : absolutel
+  }
+    */
+    position: relative;
+    /* .prdList__item 크기 밖에 있는 것은 보이지 말아라 */
+    overflow: hidden;
+
    
   }
 
@@ -70,9 +96,34 @@
   }
 
   .ec-base-product .prdList__item .description{
+    /* 2-2 사진위에 설명 겹치기위한 설정  */
+    position:absolute;/*누가 기준? .ec-base-product .prdList__item*/
+    left:10px; bottom:0;
+    /* 원래 위치에서 본인 수직크기만큼 아래로 이동 */
+    
+    width: calc(100% - 20px);/*.description 기준요소의 너비를 따라라*/
+    box-sizing: border-box;/*width => border + padding  +content */
     background-color: rgba(255,255,255,0.5);
+    padding: 0.8em 1em;
+    transform: translateY(100%);
+    opacity: 0.5;
+    transition: all 0.3;
   }
-  .ec-base-product .prdList__item .description .name{}
+  /* 상품에 마우스를 오버했을 때 .description은 썸네일 겹쳐라 */
+  .ec-base-product .prdList__item:hover .description{
+    /* left:10px; bottom:0;  동일한 값은 생략*/
+    /* 원위치에 있어라.  */
+     transform: translateY(0);
+     /* css 수치값이 변화는 과정을 보여주는 transition */
+     opacity:1;
+     transition: transform 1s;
+
+  }
+
+  .ec-base-product .prdList__item .description .name{
+    margin-bottom:0.5em;
+    font-weight: bold;
+  }
   .ec-base-product .prdList__item .description .spec{}
   .ec-base-product .prdList__item .description .spec li{}
   </style>
