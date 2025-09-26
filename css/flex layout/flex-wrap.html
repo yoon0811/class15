@@ -132,15 +132,14 @@
       flex-wrap: wrap;/*.container의 크기 item 총합보다 작을 경우에 item 줄바꿈해서 배치*/
       justify-content: flex-start;
       align-content: start;
-      /* gap:10px; */
+      gap:10px;  /*4단  4-1 => gap 10x3 */
     }
     .flex-container3 .item{
       /* flex-grow: 0;
       flex-shrink: 0;
       flex-basis: auto; */
-      /* flex:none; */
-      flex-shrink: 1;
-      width: 25%;
+      flex:none;
+      width: calc(25% - 7.5px); /*gap:10px; 4단  4-1 => gao 10x3  30/4 -> 7.5px */
     }
   </style>
 <div class="section">
