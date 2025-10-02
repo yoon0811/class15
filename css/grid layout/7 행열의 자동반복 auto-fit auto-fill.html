@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>6 grid 정렬</title>
+  <title>7 행열의 자동반복 auto-fit auto-fill</title>
   <style>
     *{margin: 0; padding: 0;}
     body{margin: 50px;}
@@ -16,17 +16,28 @@
     .item{
       background-color: dodgerblue;
       border: 1px solid darkblue;
+
+      /* 갤러리 디자인을 위한 */
+      /* aspect-ratio: 4/3; */
+      aspect-ratio: 1;  /*auto-fit을 위한 설정*/
+
     }
     /* grid */
     .grid-container{
       /* 1 그리드 선언 */
       display: grid;
-      /* 2 행열 수와 크기 */
 
-      /* 2줄 3칸 */
-      /* grid-template-rows:repeat(3, 100px) ; */
-      grid-template-rows:repeat(3, auto) ;
-      grid-template-columns: repeat(3, 200px);
+      /* 2 행열 수와 크기 */
+      /*자동반복  반응형(갤러리)
+        repeat(keyword, 크기)
+       key auto-fill, auto-fit
+       auto-fill : 빈공간에 행/열 자리배치
+       auto-fit : 빈공간 빈공간처리
+
+       auto-fit + fr 반응형
+       minmax(최소값, 최대값)
+      */
+      grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
 
 
       /* 3 정렬 지정 */
@@ -43,29 +54,23 @@
       4 암시적 그리드 크기 설정
       grid-auto-row, grid-auto-colomn  암시적 그리드 크기 지정
       */
-      grid-auto-rows: 100px;
+      /* grid-auto-rows: 100px; */
 
 
-      /* 6 정렬 */
+      /* 6 정렬  3번과 동일*/
       /* 
       cotainer 정렬선언
       아이템에서 정렬선언
       */
       /* 컨테이너안에서 아이템 덩어리의 정렬 */
-      justify-content: center;/*수평*/
+      /* justify-content: center; */
       /* row의 값을 auto */
-      align-content: stretch;/*수직*/
+      /* align-content: stretch; */
 
     }
 
     /* 5 그리드 아이템의 배치 */
-    .item:nth-child(3){
-       justify-self:center ;
-       align-self: center;
-       min-width:50%;
-       min-height: 50px;
 
-    }
     
 
 
@@ -80,7 +85,7 @@
     <div class="item">item4</div>
     <div class="item">item5</div>
     <div class="item">item6</div>
-     <div class="item">item7</div>
+    <div class="item">item7</div>
     <div class="item">item8</div>
     <div class="item">item9</div>
 
