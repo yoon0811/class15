@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>swiper 네비게이션 변경</title>
+  <title>swiper 커스트마이즈2</title>
   <!-- 1 플러그인 css 
   우리 스타일보다 먼저 위치 
   -->
@@ -11,14 +11,14 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
 />
-<link rel="stylesheet" href="myswiper-style.css">
+<link rel="stylesheet" href="myswiper-style2.css">
 <!-- 2. 플러그인 js 설치 -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 <style>
   *{margin: 0; padding: 0;}
   body{margin-top:50px;}
   .myname{
-    width:400px;
+    width:800px;
   }
   .swiper-slide img{
     width: 100%;
@@ -44,15 +44,19 @@
     <div class="swiper-slide"><img src="https://picsum.photos/400/300?random=5" alt=""></div>
     <div class="swiper-slide"><img src="https://picsum.photos/400/300?random=6" alt=""></div>
   </div>
-  <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
 
-  <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+  <div class="myswiper-util">
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- If we need navigation buttons -->
+    <div class="myswiper-nav">
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
 
   <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
+  <!-- <div class="swiper-scrollbar"></div> -->
 </div>
 <script>
   // const swiper = new Swiper(★★★'.swiper'★★★, {
@@ -70,7 +74,7 @@
   pagination: {
     el: '.swiper-pagination',
     // type : 'fraction',
-    // type : 'progressbar',
+    type : 'progressbar',
   },
 
   // Navigation arrows

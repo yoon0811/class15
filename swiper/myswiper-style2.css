@@ -57,6 +57,21 @@ swiper pagination
     opacity: var(--myswiper-bullet-active-opacity, 1);
 }
 
+
+/******
+swiper-pagination-progressbar
+*/
+  .myname .swiper-pagination-progressbar .swiper-pagination-horizontal, 
+  .myname.swiper-horizontal>.swiper-pagination-progressbar {
+      height: var(--swiper-pagination-progressbar-size, 4px);
+      left: 0;
+      top: auto;
+      bottom: 0;
+      width: 100%;
+      background:var(--primary-color);
+  }
+
+
 /*********
 swiper scrollbar
 위치조정  변수선언
