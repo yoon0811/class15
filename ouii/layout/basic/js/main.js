@@ -1,5 +1,5 @@
-/** 캠퍼타운_JS 210806 **/
-jQuery(document).ready(function() {
+/** 오우이_JS 210806 **/
+jQuery(document).ready(function () {
 
 	/* 메인 상품 슬라이드 */
 	var special_slide = new Swiper('.special_slide', {
@@ -7,7 +7,8 @@ jQuery(document).ready(function() {
 		spaceBetween: 20,
 		observer: true,
 		observeParents: true,
-		speed:700,
+		speed: 700,
+		watchOverflow: 'true',
 		preloadImages: false,
 		lazy : {
 			loadPrevNext : true,
@@ -21,7 +22,7 @@ jQuery(document).ready(function() {
 			nextEl: '.swiper-button-next-special_slide',
 			prevEl: '.swiper-button-prev-special_slide',
 		},
-        autoplay: {
+		autoplay: {
 			delay: 5000,
 			disableOnInteraction: false,
 		},
@@ -34,7 +35,7 @@ jQuery(document).ready(function() {
 	});
 
 	/* 메인 탭카테고리 */
-	jQuery(".main_product_tab li").bind("click", function() {
+	jQuery(".main_product_tab li").bind("click", function () {
 		jQuery(this).parent().find('li button').removeClass("active");
 		jQuery(this).parents('.main_product_category').find('.content_list .tabcontent').removeClass("active");
 		jQuery('button', this).addClass("active");
@@ -45,9 +46,9 @@ jQuery(document).ready(function() {
 	jQuery('.main_product_category .main_product_inner .main_product_tab li:first-child button, .content_list .tabcontent:first-child').addClass('active'); // 첫번째 탭 오픈
 
 	/* 메인 텍스트배너 링크 없을시 영역삭제 */
-	jQuery(".main_text_link").each(function(){
+	jQuery(".main_text_link").each(function () {
 		var text_none = jQuery('a', this).text();
-		if ( text_none == '' ) {
+		if (text_none == '') {
 			jQuery(this).hide();
 		}
 	});
@@ -88,8 +89,8 @@ jQuery(document).ready(function() {
 			// 섹션 초기화 처리
 			/* 메인 텍스트갤러리배너 노출설정보다 배너가 적을때 중앙정렬 */
 			jQuery(section).find(".main_3dan_banner ul").each(function () {
-				var grid_num = parseInt(jQuery(section).find("[data-ez-column]").attr('data-ez-column'), 10);	//설정한 노출개수
-				  var li_num = parseInt(jQuery(section).attr('data-ez-item-length'), 10); //등록된 아이템 개수
+				var grid_num = parseInt(jQuery(section).find("[data-ez-column]").attr('data-ez-column'), 10);	//설정한 노출개수				
+        var li_num = parseInt(jQuery(section).attr('data-ez-item-length'), 10); //등록된 아이템 개수
 
 				if (!document.documentElement.classList.contains('ez-view-type-mobile') && grid_num > li_num) {	// 모바일일때
 					jQuery(this).css('justify-content', 'center');

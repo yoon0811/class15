@@ -30,9 +30,11 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet"><!-- theme02 -->
-	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;700&display=swap" rel="stylesheet"><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"><!-- theme03 -->
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet"><!-- theme04 -->
+
     <!--@css(/layout/basic/css/swiper.min.css)-->
 	<!--@js(/layout/basic/js/swiper-bundle.min.js)-->
 	<!--@js(/js/module/product/sale_price.js)-->
@@ -47,19 +49,14 @@
 <script type="text/ez-prop">
 	<ez-prop data-version="1.0.0">
 		<ez-var data-prop="theme" data-namespace="ez.layout.theme" data-type="array">
-			<ez-item data-id="theme01" data-name="SIMPLE" data-desc="깔끔하고 심플한 스타일" data-font="Noto Sans KR" data-background-color="#000000" override-value="html" data-font-css="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@300;400;500;700&display=swap">
-			깔끔하고 심플한 스타일
-			<style>
-				.theme-box.type1 .desc {color:#fff;font-weight:400;}
-				.theme-box .word {color:#fff;}
-			</style>
+			<ez-item data-id="theme01" data-name="MODERN" data-desc="(블랙+노토산스)" data-font="Noto Sans KR" data-background-color="#f5f5f5" override-value="html" data-font-css="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
+				모던하고 차분한 스타일
+				<!-- HTML도 <b>이렇게</b> 가능합니다.<br>
+				세부 옵션은 <a href="https://sample.cafe24.com/theme01" target="_blank">이곳을</a> 통해 확인 할 수 있습니다. -->
 			</ez-item>
-			<ez-item data-id="theme02" data-name="CALM" data-desc="섬세하고 정적인 스타일" data-font="Nanum Gothic" data-background-color="#0b566b" data-font-css="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap">
-			</ez-item>
-			<ez-item data-id="theme03" data-name="CLASSY" data-desc="차분하고 세련된 스타일" data-font="Gothic A1" data-background-color="#0e4c75" data-font-css="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;700&display=swap">
-			</ez-item>
-			<ez-item data-id="theme04" data-name="DYNAMIC" data-desc="강렬하고 역동적인 스타일" data-font="Nanum Gothic" data-background-color="#08275d" data-font-css="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap">
-			</ez-item>
+			<ez-item data-id="theme02" data-name="SOFT" data-desc="은은하고 부드러운 스타일	" data-font="Noto Sans KR" data-background-color="#d8d9ed" data-font-css="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"></ez-item>
+			<ez-item data-id="theme03" data-name="BREEZY" data-desc="밝고 경쾌한 스타일" data-font="Spoqa Han Sans Neo" data-background-color="#ffc1a8" data-font-css="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"></ez-item>
+			<ez-item data-id="theme04" data-name="FRESH" data-desc="시원하고 산뜻한 스타일" data-font="Nanum Gothic" data-background-color="#c3e7e7" data-font-css="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap"></ez-item>
 		</ez-var>
 	</ez-prop>
 </script>
@@ -72,7 +69,7 @@
 	<div id="wrap">
 <!--@import(/layout/basic/header.html)-->
 <!--@import(/layout/basic/sidebar.html)-->
-<div id="container" data-ez="layout-187eug1-1">
+<div id="container" data-ez="layout-0ecjwm5-1">
 			<div id="contents">
 				<span module="Layout_MobileAction" class="RTMB">
 					<a href="#none" onclick="{$go_back}"><!--@import(/svg/icon-go-back.html)-->뒤로가기</a>
@@ -125,8 +122,8 @@
 	</div>
 
 	<div class="layer_shadow" id="layer_shadow"></div>
-	<div class="layer_shadow" id="layer_shadow_search"></div>
 	<div id="layoutDimmed" class="dimmed"></div>
+
 	<!--@css(/layout/basic/css/sub_style.css)-->
 	<!--@css(/layout/basic/css/sub_theme.css)-->
 	<!--@css(/layout/basic/css/add_theme01.css)-->

@@ -23,5 +23,8 @@ mystyle
   /* background-position: right top; */
   background-position: calc(100% - 10px)  calc(0% + 10px);
 }
+.ec-base-product  .prdList__item .thumbnail .likeButton{
+  /* left:4%; */
+}
 
 .ec-base-product  .prdList__item .description{}
