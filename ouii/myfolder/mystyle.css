@@ -1,0 +1,30 @@
+/*****
+mystyle
+*/
+
+.ec-base-product .prdList{
+  display: flex;
+  flex-wrap: wrap;
+  
+  box-sizing: border-box;
+  border: 1px solid #f00;
+}
+.ec-base-product .prdList >li{
+  flex:none;
+  margin: 0 0 70px 0;
+}
+
+.ec-base-product .prdList .prdList__item{
+  margin: 0 10px;
+}
+
+.ec-base-product  .prdList__item .thumbnail{}
+.ec-base-product  .prdList__item .thumbnail .prdIcon.ec-product-bgRT{
+  /* background-position: right top; */
+  background-position: calc(100% - 10px)  calc(0% + 10px);
+}
+.ec-base-product  .prdList__item .thumbnail .likeButton{
+  /* left:4%; */
+}
+
+.ec-base-product  .prdList__item .description{}
