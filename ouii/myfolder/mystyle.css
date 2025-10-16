@@ -9,6 +9,10 @@ mystyle
   box-sizing: border-box;
   /* border: 1px solid #f00; */
 }
+.main_product_slide .ec-base-product .prdList{
+  flex-wrap: nowrap;
+}
+
 .ec-base-product .prdList >li{
   flex:none;
   margin: 0 0 70px 0;
@@ -191,14 +195,6 @@ grid5  :nth-child(5n)
  section관련 스타일 수정
 */
 
-.section{border: 1px solid #f00;}/*테스트삭제*/
-.content-test{
-  border: 1px solid #00f;
-  min-height: 200px;
-  background-color: #ccc;
-}/*테스트삭제*/
-
-
 /* 
 1. section_full_content_center
 section 배경색
@@ -209,6 +205,8 @@ main_title이 content 너비 범위에서 left/center/right 정렬
 .section{
   /*section관련  변수선언 */
   --section-bg:#fea;
+  --section-padding-top-bottom:40px;
+  --section-main-banner-padding:16px;
 }
 
 /*         max-width: 1230px; */
@@ -216,6 +214,15 @@ main_title이 content 너비 범위에서 left/center/right 정렬
   background-color: var(--section-bg);
   width:100%;
   max-width: none;
+  padding-top:var(--section-padding-top-bottom);
+  padding-bottom:var(--section-padding-top-bottom);
+}
+
+#contents > .section_full_content_center .main_3dan_banner .main_banner_txt{
+   margin-top:0;
+   padding:var(--section-main-banner-padding);
+   background-color: #fff;
+   box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {
@@ -237,6 +244,8 @@ main_title이 content 너비 범위에서 left/center/right 정렬
   background-color: var(--section-bg);
   width:100%;
   max-width: none;
+  padding-top:var(--section-padding-top-bottom);
+  padding-bottom:var(--section-padding-top-bottom);
 }
 
 @media (min-width: 1024px) {
