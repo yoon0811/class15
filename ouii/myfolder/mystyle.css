@@ -185,3 +185,65 @@ grid5  :nth-child(5n)
   box-sizing: border-box;
   padding: 0 16px;
 }
+
+
+/******
+ section관련 스타일 수정
+*/
+
+.section{border: 1px solid #f00;}/*테스트삭제*/
+.content-test{
+  border: 1px solid #00f;
+  min-height: 200px;
+  background-color: #ccc;
+}/*테스트삭제*/
+
+
+/* 
+1. section_full_content_center
+section 배경색
+content-test는 가운데 정렬
+main_title이 content 너비 범위에서 left/center/right 정렬
+*/
+
+.section{
+  /*section관련  변수선언 */
+  --section-bg:#fea;
+}
+
+/*         max-width: 1230px; */
+#contents > .section_full_content_center{
+  background-color: var(--section-bg);
+  width:100%;
+  max-width: none;
+}
+
+@media (min-width: 1024px) {
+    #contents > .section_full_content_center > div{
+        max-width: 1230px;
+        width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* 
+2 section_full_only_content
+제목은  기존 섹션의 너비맞게 정렬이 되고
+컨텐츠 브라우저 전체 사용
+*/
+
+#contents > .section_full_only_content{
+  background-color: var(--section-bg);
+  width:100%;
+  max-width: none;
+}
+
+@media (min-width: 1024px) {
+    #contents > .section_full_only_content > .main_title{
+        max-width: 1230px;
+        width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
