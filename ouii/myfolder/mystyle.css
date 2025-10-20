@@ -2,6 +2,19 @@
 mystyle
 */
 
+
+/***********
+변수 variables
+******/
+:root{
+--primary-color:#1f1f1f;
+}
+
+
+/********
+.prdList
+** */
+
 .ec-base-product .prdList{
   display: flex;
   flex-wrap: wrap;
@@ -291,4 +304,31 @@ hero section용
   width: 100%;
   height: auto;
   max-width: none;
+}
+
+/* 
+bu-swiper
+1. navigation 이미지 변경
+ */
+.ub-swiper .swiper-button-prev{
+    background-image: url(images/arrow_back.png);
+    left: 20px;
+    right: auto;
+}
+.ub-swiper  .swiper-button-next {
+    background-image: url(images/arrow_forward.png);
+    left: auto;
+    right: 20px;
+}
+.ub-swiper .swiper-pagination-bullet{
+  vertical-align: middle;
+  /* width:16px;
+  height: 8px;
+  border-radius: 0; */
+}
+.ub-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: transparent;
+    /* background: var(--primary-color); */
+    border:4px solid var(--primary-color);
 }
