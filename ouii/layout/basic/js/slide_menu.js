@@ -170,17 +170,17 @@ $(function(){
         }
     });
 
-	/* 슬라이드 탭 */
-	jQuery("#slide_category").click(function() {
-		jQuery(this).addClass("open").siblings().removeClass("open");
-		jQuery(".navigation-menu__category").show();
-		jQuery(".tab_community").hide();
-	});
-	jQuery("#slide_community").click(function() {
-		jQuery(this).addClass("open").siblings().removeClass("open");
-		jQuery(".tab_community").show();
-		jQuery(".navigation-menu__category").hide();
-	});
+	/* 슬라이드 고객센터 토글 */
+    jQuery('#aside .navigation-menu__board .icoCategory').click(function() {
+        var target = jQuery(this).parents('#aside .navigation-menu__board');
+        if(target.find('.categoryList').css("display") == "none"){
+            target.find('.categoryList').show();
+        }else{
+            target.find('.categoryList').hide();
+        }
+
+        jQuery(this).parents('.title').toggleClass('selected');
+    });
 
     $('#slideCateList h2').on('click', function() {
         var oParentId = $(this).parent().attr('id');
