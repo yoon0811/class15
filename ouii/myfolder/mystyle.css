@@ -265,8 +265,15 @@ hero section용
 .visual-section{
   --visual-swiper-width:100%;
 }
-@media (min-width: 1024px) {
-    #contents > .visual-section {
+/* @media (min-width: 1024px) {
+    #contents.ub-style .visual-section  {
+        max-width: none;
+        width: 100%;
+    }
+} */
+ /* html에서 #contents class="ub-style" */
+@media (max-width: 1024px) {
+   #container #contents.ub-style  {
         max-width: none;
         width: 100%;
     }
