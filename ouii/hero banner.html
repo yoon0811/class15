@@ -184,6 +184,11 @@
     const visual_swiper = new Swiper('.visual_swiper', {
       direction: 'horizontal',
       loop: true,
+      centeredSlides: true,
+      slidesPerView:'auto',
+      //html에서 trasform:scale() 을 사용하면 sapceBetween을 사용하지 마세요
+      // spaceBetween: 30,  
+       // 무한반복
       // autoplay: {
       //   delay: 2500,
       //   disableOnInteraction: false,
