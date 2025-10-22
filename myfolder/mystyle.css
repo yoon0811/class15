@@ -307,7 +307,7 @@ hero section용
 }
 
 /* 
-bu-swiper
+ub-swiper
 1. navigation 이미지 변경
 2. pagination 색상변경
  */
@@ -317,13 +317,13 @@ bu-swiper
   background-size: contain;
  }
 .ub-swiper .swiper-button-prev{
-    background-image: url(images/arrow_back.svg);
+    background-image: url(/myfolder/images/arrow_back.svg);
    background-position: center;
     left: 20px;
     right: auto;
 }
 .ub-swiper  .swiper-button-next {
-    background-image: url(images/arrow_forward.svg);
+    background-image: url(/myfolder/images/arrow_forward.svg);
     background-position: center;
     left: auto;
     right: 20px;
@@ -372,6 +372,7 @@ swiper controls가 슬라이드 아래 표시
 }
 .ub-swiper.ub-swiper-controls-bottom .ub-swiper-controls{
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap:2rem;
   box-sizing: border-box;
@@ -399,15 +400,67 @@ swiper controls가 슬라이드 아래 표시
 }
 .ub-swiper.ub-swiper-controls-bottom .swiper-button-next,
 .ub-swiper.ub-swiper-controls-bottom .swiper-button-prev{
-  order:3;
-  width:28px; height: 28px;
+  width:24px; height: 24px;
   margin-top:0;
-  border: 1px solid #ccc;
 }
 .ub-swiper.ub-swiper-controls-bottom .swiper-button-prev{
+  order:3;
   background-position:4px center;
+  margin-left:30px;
+ 
 }
 
 .ub-swiper.ub-swiper-controls-bottom .swiper-button-next{
-  margin-left: -0.8rem;
+   order:5;
+  /* margin-left: -1.2rem; */
+}
+  
+  /* progressbar와 fraction을 함께 쓰는 방법 */
+
+/* progressbar 스타일링 */
+.ub-swiper.ub-swiper-controls-bottom .swiper-pagination-progressbar {
+  width: 100%;
+  max-width: 85%;
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+}
+
+.ub-swiper.ub-swiper-controls-bottom .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+  background: var(--primary-color);
+}
+
+/* 별도로 현재 페이지 번호 표시 */
+.ub-swiper.ub-swiper-controls-bottom .custom-fraction {
+  order:4;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* 자동 재생 토글 버튼 스타일링 */
+.ub-swiper.ub-swiper-controls-bottom #btn-autoplay-toggle{
+  order:6;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.ub-swiper.ub-swiper-controls-bottom #btn-autoplay-toggle .icon-play,
+.ub-swiper.ub-swiper-controls-bottom #btn-autoplay-toggle .icon-pause{
+  display: inline-block ;
+  width: 24px; height: 24px;
+  overflow: hidden;
+  text-indent: -9999px;
+  background: center/contain no-repeat;
+}
+
+.ub-swiper.ub-swiper-controls-bottom #btn-autoplay-toggle .icon-play{
+  background-image: url(/myfolder/images/play_arrow.png);
+}
+.ub-swiper.ub-swiper-controls-bottom #btn-autoplay-toggle .icon-pause{
+  background-image: url(/myfolder/images/pause.png);
+}
+.ub-swiper.ub-swiper-controls-bottom #btn-autoplay-toggle .icon-play.hidden,
+.ub-swiper.ub-swiper-controls-bottom #btn-autoplay-toggle .icon-pause.hidden{
+  display: none;
 }
