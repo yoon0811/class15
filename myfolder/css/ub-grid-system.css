@@ -1,4 +1,3 @@
-@import url('./ub-variables.css');
 
 /* ========================================
    1 기본 컨테이너 & 그리드 시스템
@@ -33,8 +32,10 @@
 [class*="col-"] {
     padding-left: var(--space-md);
   padding-right: var(--space-md);
+    /* padding-left: 0;
+  padding-right: 0; */
   box-sizing: border-box;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
 }
 
 /* 12컬럼 기준 비율 계산 */
