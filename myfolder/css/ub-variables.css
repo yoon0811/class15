@@ -19,10 +19,11 @@
   --dan-space:15px;
   
   /* 반응형 breakpoint */
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 767px;
   --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
+  --breakpoint-xl: 1300px;
+  --breakpoint-xxl: 1533px;
 }
 
 
