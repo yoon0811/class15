@@ -5,6 +5,10 @@
   /* 색상 */
   --primary-color:#1f1f1f;
 
+  --ub-font-base-color:#000;
+  --ub-font-title-color:#000;
+  --ub-font-title-txt02-color:#999;
+
   /* 간격 변수 */
   --space-xs: 8px;
   --space-sm: 10px;
