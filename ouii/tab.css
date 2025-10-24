@@ -1,11 +1,47 @@
 .main_product_category{
   margin:100px auto;
 }
+.main_product_category .main_product_tab{
+  display: flex;
+}
+.main_product_category  .main_product_tab li{
+    margin:0 var(--space-xs);
+  padding:0 var(--space-xs);
+}
+.main_product_category  .main_product_tab li button{
+  position: relative;
+  font-size:calc(
+   13px + (18 - 13) * ((100vw - 370px) / (1760 - 370))
+  );
+  
+  line-height: 1.6;
+  color:var(--ub-tab-button-default);
+}
+
+.main_product_category .main_product_tab li .button::after{
+  content:"";
+  position: absolute;
+  bottom:0px;
+  left:0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--ub-tab-button-default);
+  transform: scale(0);
+  transform-origin: right center ;
+  transition:transform 0.2s ease-in;
+}
+.main_product_category .main_product_tab li .button.active::after{
+  transform:scale(100%);
+  transform-origin: left center ;
+  transition: transform 0.3s ease-in;
+}
 
 /* 
 탭버튼 중앙정렬 .section.tab-center
 */
-.main_product_inner{}
+.section.tab-center  .main_product_inner{
+  margin-bottom: var(--space-md);
+}
 
 /* .main_title */
 .section.tab-center .main_title{
@@ -38,7 +74,7 @@
   justify-content: center;
 
   width:100%;
-  border: 1px solid #f00;/*삭제*/
+
 }
 .section.tab-center .main_product_tab li{
   margin:0 var(--space-xs);
@@ -80,6 +116,7 @@ main_title main_product_tab 수평으로 배치
   display: flex;
   justify-content: space-between;
   align-items: end;
+  margin-bottom: var(--space-md);
 }
 
 .section.tab-horizontal .main_title{
@@ -155,7 +192,7 @@ main_title main_product_tab 수평으로 배치
   margin:0;
   padding:var(--space-sm) var(--space-md);
   margin-bottom: var(--space-md);
-  background-color: #efefef;
+  /* background-color: #efefef; */
 }
 
 .section.tab-vertical .main_product_tab li button.active{
@@ -176,7 +213,7 @@ li에 배경을 넣지 않으면 content:none을 코멘트처리
 */
 .section.tab-vertical .main_product_tab >li button::after,
 .section.tab-vertical .main_product_tab >li button.active::after{
-  content: none;
+  /* content: none; */
 }
 .section.tab-vertical .content_list{
   width:82%;
