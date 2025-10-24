@@ -2,13 +2,15 @@
   margin:100px auto;
 }
 .main_product_category .main_product_tab{
-  display: flex;
+   display: flex;
+   margin-bottom:0;
 }
+
 .main_product_category  .main_product_tab li{
     margin:0 var(--space-xs);
   padding:0 var(--space-xs);
 }
-.main_product_category  .main_product_tab li button{
+.main_product_category  .main_product_tab li .button{
   position: relative;
   font-size:calc(
    13px + (18 - 13) * ((100vw - 370px) / (1760 - 370))
@@ -136,14 +138,14 @@ main_title main_product_tab 수평으로 배치
 .section.tab-horizontal  .main_product_tab{
   justify-content: end;   width: auto;
 }
-.section.tab-horizontal .main_product_tab li button.active{
+.section.tab-horizontal .main_product_tab li .button.active{
   color:var(--ub-tab-button-active);
 }
 
-.section.tab-horizontal .main_product_tab li button.active::after{
+.section.tab-horizontal .main_product_tab li .button.active::after{
   content:"";
   position: absolute;
-  bottom:0px;
+  bottom:-6px;
   left:0;
   width: 100%;
   height: 2px;
@@ -237,3 +239,64 @@ content_list
 .section.main_product_category .content_list .tabcontent.active{
   display: block;
 }
+
+/* 
+탭메뉴 미디어쿼리
+*/
+/* 
+.section.tab-center
+ */
+@media (max-width:1024px){
+.section.tab-center  .main_product_inner{
+    margin-bottom: var(--space-sm);
+}
+.section.tab-center .main_title{
+    margin-bottom:var(--space-lg);
+}
+.section.tab-center .main_product_tab{
+  overflow-x: auto;
+}
+
+}/* @media (max-width:1024px){ */
+
+@media (max-width:767px){
+.section.tab-center .main_product_tab{
+  justify-content: start;
+}
+
+}/*@media (max-width:1024px){*/
+
+
+/* 
+.section.tab-horizontal
+*/
+@media (max-width:1024px){
+  .section.tab-horizontal .main_product_inner{
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+
+ .section.tab-horizontal .main_title{
+  margin-bottom: var(--space-lg);
+ }
+ 
+.section.tab-horizontal  .main_product_tab{
+  justify-content:start; 
+  margin-left:0; 
+  overflow-y: auto; 
+}
+
+.section.tab-horizontal  .main_product_tab li:first-child{
+  margin-left:0;
+  padding-left: 0;
+}
+
+}/*@media (max-width:1024px){*/
+
+@media (max-width:767px){
+.section.tab-horizontal .main_title{
+  margin-bottom: var(--space-md);
+ }
+
+}/*@media (max-width:767px){*/
