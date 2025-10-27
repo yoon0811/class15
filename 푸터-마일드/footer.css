@@ -25,6 +25,31 @@
   flex-basis: auto;
 } */
 
-.bt_top{  width: 100%;}
+.bt_top{  
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+/* 왼쪽 로고, 기본정보 */
+.bt_top .info_left{ }
+.bt_top .info_left .bt_logo{
+  margin-bottom: 30px;
+}
+.bt_top .info_left .bt_logo a{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  line-height: 1;
+}
+/* clamp()함수 clamp(최소, 선호값, 최대값) */
+.bt_top .info_left .bt_logo a img{
+   width: clamp(150px,10vw,200px);
+}
+
+.bt_top .info_left ul{}
+.bt_top .bt_top_fold{}
+
+
 .bt_middle{width: 100%;}
+
 .bt_bottom{width: 100%;}
