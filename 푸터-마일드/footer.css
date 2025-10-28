@@ -30,6 +30,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width:767px){
+.bt_top{ 
+  flex-direction: column;
+}
+}
 /* 왼쪽 로고, 기본정보 */
 .bt_top .info_left{ }
 .bt_top .info_left .bt_logo{
@@ -74,11 +80,37 @@
   position: relative;
 }
 .bt_top .info_left ul .bt_company span[da-ez-role="title"]{}
-#footer .bt_company .table_fold{}
+#footer .bt_company .tablet_fold{
+   display: flex;
+   flex-wrap: wrap;
+   max-width: 500px;
+}
+
+@media (max-width:767px){
+  #footer .bt_company .tablet_fold{
+    display: block;
+  }
+}
 .bt_top  li.bt_company  .bt_info_list{}
 .bt_top  li.bt_company  .bt_info_list li{}
 
-.bt_top .bt_top_fold{}
+
+/* 
+.bt_top 오른쪽 영역
+*/
+.bt_top .bt_top_fold{
+  display: flex;
+}
+.bt_top .bt_top_fold  .tablet_fold strong{
+  display: block;
+}
+
+@media (max-width:767px){
+  .bt_top .bt_top_fold{
+    flex-direction: column;
+  }
+}
+.bt_top .bt_top_fold li{}
 
 
 .bt_middle{width: 100%;}
