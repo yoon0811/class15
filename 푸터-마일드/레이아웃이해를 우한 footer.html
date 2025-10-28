@@ -1,0 +1,61 @@
+
+!
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./layout/basic/css/common.css">
+<link rel="stylesheet" href="./layout/basic/css/layout.css">
+</head>
+<body>
+  <div id="footer">
+  <div class="inner">
+    <div class="bt_top">
+      <div class="info_left">
+          <div class="bt_log">1로고</div>
+          <ul>
+            <li class="bt_company">4 기본정보</li>
+          </ul>
+
+      </div>
+      <ul class="bt_top_fold">
+        <li class="bt_cc">5,6 고객센터 정보</li>
+        <li class="bt_bank"> 7 결제 정보 </li>
+        <li class="bt_sns">2 sns</li>
+      </ul>
+    </div>
+    <!-- //.bt_top -->
+
+     <div class="bt_middle">
+      <ul class="bt_util">3 바로가기(하단메뉴) 메뉴</ul>
+     </div>
+     <!-- //.bt_middle -->
+
+      <div class="bt_bottom">
+        <div class="bt_copyright">8 copyright</div>
+      </div>
+      <!-- bt_bottom -->
+  </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+<style>
+#footer .inner{ background-color: beige;}
+.bt_top {border: 1px solid #f00;}
+.bt_top .info_left .bt_log{ background-color: #f6c;}
+.bt_top  .bt_top_fold {background-color: #f6c;}
+
+.bt_top .info_left .bt_company,
+.bt_top .bt_top_fold .bt_bank,
+.bt_top .bt_top_fold .bt_sns{
+  position: absolute; left:0; top:0;
+  display: none;
+}
+</style>
