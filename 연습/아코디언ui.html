@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>아코디언 UI</title>
+  <style>
+    :root{
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --accent:#2b8bf2;
+      --muted:#6b7280;
+      --radius:10px;
+      --shadow:0 6px 18px rgba(30,41,59,0.06);
+    }
+    body{
+      background:var(--bg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans KR",Helvetica,Arial;
+      color:#0f172a;
+      padding:40px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      min-height:100vh;
+    }
+    .wrap{
+      width:min(760px,96%);
+    }
+
+    .accordion{
+      background:transparent;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .item{
+      background:var(--card);
+      border-bottom:1px solid #eef2f7;
+    }
+    .item:last-child{ border-bottom:0; }
+
+    .accordion-button{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+      padding:18px 20px;
+      font-size:16px;
+      font-weight:600;
+      color:inherit;
+      background:transparent;
+      border:0;
+      cursor:pointer;
+      text-align:left;
+      gap:12px;
+    }
+    .accordion-button:focus{
+      outline:3px solid rgba(43,139,242,0.14);
+      outline-offset:2px;
+    }
+
+    .meta{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    .chev{
+      width:20px;
+      height:20px;
+      transform:rotate(0deg);
+      transition:transform .25s ease;
+      display:inline-block;
+      color:var(--accent);
+      flex:0 0 auto;
+    }
+    .item[aria-expanded="true"] .chev{
+      transform:rotate(90deg);
+    }
+
+    .panel{
+      overflow:hidden;
+      max-height:0;
+      transition:max-height .32s cubic-bezier(.2,.8,.2,1), padding .22s ease;
+      padding:0 20px;
+    }
+    .panel.open{
+      padding:16px 20px 20px 20px;
+    }
+    .panel p{
+      margin:0;
+      color:#0f172a;
+      line-height:1.6;
+    }
+
+    /* 작은 화면에서 패딩 축소 */
+    @media (max-width:480px){
+      .accordion-button{ padding:14px 16px; font-size:15px; }
+      .panel{ padding-left:16px; padding-right:16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 style="font-size:20px;margin:0 0 14px 0;">아코디언 예제</h1>
+
+    <div class="accordion" id="myAccordion">
+      <div class="item" aria-expanded="false">
+        <button class="accordion-button" aria-controls="panel1" aria-expanded="false" id="btn1">
+          <span>섹션 1 — 소개</span>
+          <span class="meta">간단한 텍스트</span>
+          <span class="chev" aria-hidden="true">▶</span>
+        </button>
+        <div id="panel1" class="panel" role="region" aria-labelledby="btn1" aria-hidden="true">
+          <p>섹션 1의 내용입니다. 아코디언은 한 번에 하나의 섹션을 열거나 여러 섹션을 열 수 있습니다. 이 예제는 한 번에 하나만 엽니다.</p>
+        </div>
+      </div>
+
+      <div class="item" aria-expanded="false">
+        <button class="accordion-button" aria-controls="panel2" aria-expanded="false" id="btn2">
+          <span>섹션 2 — 세부 정보</span>
+          <span class="meta">더 보기</span>
+          <span class="chev" aria-hidden="true">▶</span>
+        </button>
+        <div id="panel2" class="panel" role="region" aria-labelledby="btn2" aria-hidden="true">
+          <p>섹션 2의 상세 내용입니다. 내용 길이에 따라 애니메이션으로 자연스럽게 펼쳐집니다.</p>
+        </div>
+      </div>
+
+      <div class="item" aria-expanded="false">
+        <button class="accordion-button" aria-controls="panel3" aria-expanded="false" id="btn3">
+          <span>섹션 3 — 참고</span>
+          <span class="meta">참고사항</span>
+          <span class="chev" aria-hidden="true">▶</span>
+        </button>
+        <div id="panel3" class="panel" role="region" aria-labelledby="btn3" aria-hidden="true">
+          <p>섹션 3의 내용입니다. 키보드로도 접근 가능하며 Enter/Space로 열고 닫을 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const accordion = document.getElementById('myAccordion');
+      const items = Array.from(accordion.querySelectorAll('.item'));
+
+      function closeItem(item){
+        const btn = item.querySelector('.accordion-button');
+        const panel = item.querySelector('.panel');
+        item.setAttribute('aria-expanded','false');
+        btn.setAttribute('aria-expanded','false');
+        panel.setAttribute('aria-hidden','true');
+        panel.style.maxHeight = null;
+        panel.classList.remove('open');
+      }
+
+      function openItem(item){
+        const btn = item.querySelector('.accordion-button');
+        const panel = item.querySelector('.panel');
+        item.setAttribute('aria-expanded','true');
+        btn.setAttribute('aria-expanded','true');
+        panel.setAttribute('aria-hidden','false');
+        panel.classList.add('open');
+        // 강제 리플로우 후 높이 설정 (애니메이션)
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+
+      // 한 번에 하나만 열기
+      function toggleItem(targetItem){
+        const isOpen = targetItem.getAttribute('aria-expanded') === 'true';
+        items.forEach(i => closeItem(i));
+        if(!isOpen){
+          openItem(targetItem);
+        }
+      }
+
+      // 클릭/키보드 이벤트 바인딩
+      items.forEach(item => {
+        const btn = item.querySelector('.accordion-button');
+        btn.addEventListener('click', () => toggleItem(item));
+
+        btn.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' '){
+            e.preventDefault();
+            toggleItem(item);
+            return;
+          }
+          // 화살표 키로 이동
+          const idx = items.indexOf(item);
+          if(e.key === 'ArrowDown'){
+            e.preventDefault();
+            const next = items[(idx + 1) % items.length].querySelector('.accordion-button');
+            next.focus();
+          } else if(e.key === 'ArrowUp'){
+            e.preventDefault();
+            const prev = items[(idx - 1 + items.length) % items.length].querySelector('.accordion-button');
+            prev.focus();
+          }
+        });
+      });
+
+      // 초기 상태: 모두 닫힘 (원하면 첫 항목 열기)
+      // openItem(items[0]);
+      // 창 리사이즈 시 열린 패널 높이 조정
+      window.addEventListener('resize', () => {
+        items.forEach(item => {
+          const panel = item.querySelector('.panel');
+          if(item.getAttribute('aria-expanded') === 'true'){
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
